@@ -1,9 +1,11 @@
-import { Text, View, StyleSheet, Image } from "react-native";
-import { Button } from "@react-navigation/elements";
+import { Text, View, StyleSheet, Image, Pressable, TextInput } from "react-native";
+import { BotaoLogin } from "../components/botaoLogin";
+import { LoginAlt } from "../components/loginsAlt";
+import { router } from "expo-router";
 
-export default function telaLogin({ navigation }) {
+export default function telaLogin() {
     return (
-        <View style={styles.telaLogin}>
+        <View style={styles.tela}>
           <View style={styles.logos}>
             <Image source={require('../assets/images/fotoCapa.png')} style={styles.logo}/> 
           </View>
@@ -12,22 +14,18 @@ export default function telaLogin({ navigation }) {
           <View style={styles.EsqueceuSenha}>
             <text>Esqueceu a senha ?</text>
           </View>
-          <input type="text" placeholder="Email" style={styles.inputs}/>
-          <input type="text" placeholder="senha" style={styles.inputs}/>
+          <TextInput type="text" placeholder="Email" style={styles.inputs}/>
+          <TextInput type="text" placeholder="senha" style={styles.inputs}/>
           <View style={styles.botoes}>
-            <Text style={styles.btnCadastrar}>Cadastrar</Text>
-            <Button title="Login" style={styles.btnLogar}>
-              <Text style={styles.btnLogarText}>Logar</Text>
-            </Button>
+            <Pressable style={styles.btnCadastrar} onPress={() => router.navigate('/cadastro')}>Cadastrar</Pressable>
+
+            <BotaoLogin 
+              title="Logar"
+            />
+
           </View>
     
-          <View style={styles.logins}>
-            <Image source={require('../assets/images/google.jpg')} style={styles.loginImages}/>
-            <Text style={styles.nomeLogins}>Google</Text>
-            <Text style={styles.divisor}>|</Text>
-            <Image source={require('../assets/images/user.jpg')} style={styles.loginImages}/>
-            <Text style={styles.nomeLogins}>Convidado</Text>
-          </View>
+          <LoginAlt />
     
           <View style={styles.comidas}>
             <Image source={require('../assets/images/batata.png')} style={styles.batata}/>
@@ -41,7 +39,7 @@ export default function telaLogin({ navigation }) {
 
 const styles = StyleSheet.create({
 
-  telaLogin: {
+  tela: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -86,57 +84,16 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
-  btnLogar: {
-    backgroundColor: '#FFA801',
-    borderRadius: '15px',
-    border: 'solid 2px #111111',
-  },
-
-  btnLogarText: {
-    color: '#000000ff',
-    fontWeight: 'bold',
-  },
-
 
   inputs: {
-    width: '30vh',
-    height: '24px',
+    width: '300px',
+    height: '38px', 
     borderRadius: '20px',
     border: 'solid 3px #FFA801',
     backgroundColor: '#636363',
     marginBottom: '10px',
     color: '#FFA801',
     paddingLeft: '10px'
-  },
-
-  loginImages: {
-    width: '50px',
-    height: '50px',
-    borderRadius: '30px',
-    border: 'solid 3px #FFA801',
-    marginTop: '15px'
-  },
-
-
-  logins: {
-    display: 'flex',
-    flexDirection: "row",
-    alignItems: 'center',
-    width:'34vh',
-    justifyContent: 'space-around',
-    marginTop: '40px'
-  },
-
-  nomeLogins: {
-    color: '#FFA801',
-    fontWeight: 'bold',
-    marginTop: '15px'
-  },
-
-  divisor: {
-    color: '#FFA801',
-    fontWeight: 'bold',
-    marginTop: '12px'
   },
 
   comidas: {

@@ -12,7 +12,12 @@ export default function RootLayout() {
       />
       <Stack.Screen 
         name="login" // Isso aponta para o app/login.jsx
-        options={{ title: 'Login' }} 
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen 
+        name="cadastro" // Isso aponta para o app/login.jsx
+        options={{ headerShown: false }}
       />
     </Stack>
   );
