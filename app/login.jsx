@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Image, Pressable, TextInput } from "react-native";
 import { BotaoLogin } from "../components/botaoLogin";
 import { LoginAlt } from "../components/loginsAlt";
+import EvilIcons from '@expo/vector-icons/EvilIcons';
 import { router } from "expo-router";
 
 export default function telaLogin() {
@@ -21,6 +22,7 @@ export default function telaLogin() {
 
             <BotaoLogin 
               title="Logar"
+              onPress={() => router.navigate('/home')}
             />
 
           </View>
@@ -31,7 +33,14 @@ export default function telaLogin() {
             <Image source={require('../assets/images/batata.png')} style={styles.batata}/>
             <Image source={require('../assets/images/hamburguer.png')} style={styles.hamburguer}/>
           </View>
+
+          <View style={styles.localizacao}>
+            <EvilIcons name="location" size={37} color="red" />
+            <Text style={styles.localizacaoText}>Tavares Bastos, Rua Cruzeiro do Sul 131 ;</Text>
+          </View>
         </View>    
+
+        
     );
         
 }
@@ -113,6 +122,19 @@ const styles = StyleSheet.create({
   hamburguer: {
     width: '115px',
     height: '104px'
+  },
+
+  localizacao:{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    marginTop: 20,
+  },
+
+  localizacaoText:{
+    color: '#FFA801',
+    fontSize: '18px',
   }
 
 })

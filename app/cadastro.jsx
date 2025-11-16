@@ -10,13 +10,14 @@ export default function telaCadastro () {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [restauranteId, setRestauranteId] = useState("");
     const [mensagem, setMensagem] = useState("");
     const [erro, setErro] = useState("");
 
 
     const cadastrarAdmin = async () => {
 
-        if(!nome || !email || !senha){
+        if(!nome || !email || !senha || !restauranteId){
             setErro("Por favor, preencha todos os campos.");
             return;
         }
@@ -31,6 +32,7 @@ export default function telaCadastro () {
                     nome: nome,
                     email: email,
                     senha: senha,
+                    restaurante: restauranteId
                 }),
             });
 
@@ -40,9 +42,10 @@ export default function telaCadastro () {
                 setNome(" ");
                 setEmail(" ");
                 setSenha(" ");
-                setMensagem("Admin cadastrado com sucesso!");
+                setRestauranteId(" ");
+                setMensagem("cadastrado com sucesso!");
             } else{
-                setErro("Não foi possível cadastrar o Admin.");
+                setErro("Não foi possível cadastrar .");
             }
         } catch (error) {
             setErro("Falha ao buscar. Verifique sua conexão.")
@@ -92,10 +95,18 @@ export default function telaCadastro () {
                         secureTextEntry={true}
                         style={styles.inputs}
                     />
+
+                    <TextInput 
+                        type="text" 
+                        placeholder="Restaurante" 
+                        onChangeText={setRestauranteId}
+                        secureTextEntry={true}
+                        style={styles.inputs}
+                    />
                 </View>
 
                 <View style={styles.resultado}>
-                    
+                    <Text>{mensagem}</Text>
                 </View>
                 
 

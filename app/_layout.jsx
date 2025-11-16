@@ -19,6 +19,11 @@ export default function RootLayout() {
         name="cadastro" // Isso aponta para o app/login.jsx
         options={{ headerShown: false }}
       />
+
+      <Stack.Screen 
+        name="home" // Isso aponta para o app/login.jsx
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }
