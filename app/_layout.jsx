@@ -24,6 +24,11 @@ export default function RootLayout() {
         name="home" // Isso aponta para o app/login.jsx
         options={{ headerShown: false }}
       />
+
+      <Stack.Screen 
+        name="artesanais" // Isso aponta para o app/login.jsx
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }
